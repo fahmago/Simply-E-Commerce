@@ -15,5 +15,12 @@ class Brand extends Model
     {
         return $this->hasMany(Product::class);
     }
+     
+    public function getImageUrlAttribute()
+    {
+        return $this->image 
+            ? url('storage/' . $this->image) 
+            : url('images/default-brand.png'); // Replace with your default image path if necessary
+    }
 }
 
